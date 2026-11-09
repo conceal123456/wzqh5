@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8" />
@@ -228,6 +228,32 @@ button{touch-action:manipulation}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
+
+  /* ---------- 结语 ---------- */
+  .closing{
+    position:relative;margin-top:22px;padding:24px 22px 20px;overflow:hidden;
+    border:1px solid rgba(217,178,106,.3);border-radius:18px;text-align:center;
+    background:linear-gradient(180deg,rgba(217,178,106,.10),rgba(217,178,106,.02));
+  }
+  .closing::before{
+    content:"学";position:absolute;right:-8px;bottom:-26px;
+    font-family:"Noto Serif SC",serif;font-size:104px;line-height:1;
+    color:rgba(217,178,106,.07);pointer-events:none;
+  }
+  .closing-label{font-size:10.5px;letter-spacing:.42em;color:var(--gold-dim)}
+  .closing-title{
+    font-family:"Noto Serif SC",serif;font-size:26px;font-weight:700;letter-spacing:.18em;
+    color:var(--gold-2);margin:10px 0 4px;
+  }
+  .closing-title::after{
+    content:"";display:block;width:44px;height:1px;margin:10px auto 0;
+    background:linear-gradient(90deg,transparent,rgba(217,178,106,.7),transparent);
+  }
+  .closing-text{
+    margin:12px auto 0;max-width:24em;text-align:left;text-indent:2em;
+    font-size:12.5px;line-height:1.95;color:#E6D6BE;position:relative;z-index:1;
+  }
+  .closing-sign{margin-top:14px;font-size:10.5px;color:var(--muted);letter-spacing:.06em;position:relative;z-index:1}
 </style>
 </head>
 <body>
@@ -244,10 +270,10 @@ button{touch-action:manipulation}
         <div class="seal">学</div>
         <div class="eyebrow">学习问答</div>
         <h1>党的二十届五中全会<br><span class="accent">公报</span>知识自测</h1>
-        <p class="lede">依据新华社 2026 年 10 月 29 日发布的《中国共产党第二十届中央委员会第五次全体会议公报》原文编写，每题附解析。</p>
+        <p class="lede">依据新华社 2026 年 10 月 29 日发布的《中国共产党第二十届中央委员会第五次全体会议公报》原文编写，10 道题，每题附解析。</p>
         <div class="stats">
-          <div class="stat"><b id="totalNum">20</b><span>道题目</span></div>
-          <div class="stat"><b>5</b><span>分钟以内</span></div>
+          <div class="stat"><b id="totalNum">10</b><span>道题目</span></div>
+          <div class="stat"><b>3</b><span>分钟以内</span></div>
           <div class="stat"><b id="bestNum">—</b><span>我的最高分</span></div>
         </div>
       </div>
@@ -256,12 +282,12 @@ button{touch-action:manipulation}
         <button class="mode on" data-mode="all">
           <span class="tick">✓</span>
           <div class="m-title">完整闯关</div>
-          <div class="m-sub">20 道题顺序作答<br>适合系统复习</div>
+          <div class="m-sub">10 道题顺序作答<br>适合系统复习</div>
         </button>
         <button class="mode" data-mode="random">
           <span class="tick">✓</span>
-          <div class="m-title">随机十题</div>
-          <div class="m-sub">随机抽取 10 道<br>适合会前热身</div>
+          <div class="m-title">随机五题</div>
+          <div class="m-sub">随机抽取 5 道<br>适合会前热身</div>
         </button>
       </div>
 
@@ -275,7 +301,7 @@ button{touch-action:manipulation}
     <!-- ============ 答题 ============ -->
     <section class="screen" id="screen-quiz">
       <div class="qtop">
-        <span>第 <b id="qIndex">1</b> / <b id="qTotal">20</b> 题</span>
+        <span>第 <b id="qIndex">1</b> / <b id="qTotal">10</b> 题</span>
         <span class="score" id="scoreNow">答对 0 题</span>
       </div>
       <div class="track"><div class="bar" id="bar"></div></div>
@@ -322,6 +348,13 @@ button{touch-action:manipulation}
 
       <div class="review" id="review"></div>
 
+
+      <div class="closing">
+        <div class="closing-label">结 语</div>
+        <div class="closing-title">谢谢大家</div>
+        <p class="closing-text">一次答题会结束，党性修养不会结束。愿我们把“持之以恒”四个字，落在每一次组织生活、每一份作业、每一行代码里。</p>
+        <div class="closing-sign">医药信息工程学院学生党支部 · 2026年11月</div>
+      </div>
       <div class="result-actions">
         <button class="secondary" id="againBtn">再来一次</button>
         <button class="primary" id="shareBtn" style="letter-spacing:.08em">复制成绩</button>
@@ -361,33 +394,7 @@ const BANK = [
       "《中共中央关于党的百年奋斗重大成就和历史经验的决议》"
     ],
     answer:[1],
-    explain:"全会审议通过《中共中央关于持之以恒推进全面从严治党若干重大问题的决定》。"
-  },
-  {
-    type:"single",
-    q:"全会最重要的成果是什么？",
-    options:[
-      "增选中央政治局委员",
-      "决定召开党的二十一大",
-      "审议通过《中共中央关于持之以恒推进全面从严治党若干重大问题的决定》",
-      "递补中央委员会委员"
-    ],
-    answer:[2],
-    explain:"全会最重要的成果，是审议通过《中共中央关于持之以恒推进全面从严治党若干重大问题的决定》。"
-  },
-  {
-    type:"judge",
-    q:"全会由中央政治局主持，中央委员会总书记习近平发表重要讲话。",
-    options:["正确","错误"],
-    answer:[0],
-    explain:"公报原文：全会由中央政治局主持。中央委员会总书记习近平发表重要讲话。"
-  },
-  {
-    type:"single",
-    q:"公报对“十四五”“十五五”作出怎样的评价？",
-    options:["“十四五”圆满收官、“十五五”开局良好","“十四五”开局良好、“十五五”圆满收官","两个五年规划均尚未完成","公报未提及"],
-    answer:[0],
-    explain:"公报指出：“十四五”圆满收官，“十五五”开局良好，党和国家事业取得新进展新成效。"
+    explain:"全会审议通过《中共中央关于持之以恒推进全面从严治党若干重大问题的决定》，这是全会最重要的成果。"
   },
   {
     type:"multi",
@@ -395,13 +402,6 @@ const BANK = [
     options:["让人民来监督政府","自我革命","依法治国","发展经济"],
     answer:[0,1],
     explain:"公报指出，我们党找到“让人民来监督政府”和“自我革命”两个跳出治乱兴衰历史周期率的答案，这是中国共产党的独特创造。"
-  },
-  {
-    type:"single",
-    q:"新时代管党治党、兴党强党伟大实践中形成的重大理论成果是？",
-    options:["习近平党建思想","邓小平理论","“三个代表”重要思想","科学发展观"],
-    answer:[0],
-    explain:"公报指出，党中央围绕建设什么样的长期执政的马克思主义政党、怎样建设长期执政的马克思主义政党的重大时代课题，形成习近平党建思想。"
   },
   {
     type:"multi",
@@ -426,41 +426,6 @@ const BANK = [
   },
   {
     type:"multi",
-    q:"《公报》明确的加强党性修养路径包括？",
-    options:["强化对党忠诚教育","坚持用党的创新理论凝心铸魂","在实践中锤炼党性","以个人名利衡量党性"],
-    answer:[0,1,2],
-    explain:"公报提出五个方面：强化对党忠诚教育，坚持用党的创新理论凝心铸魂，用党的优良传统和中华优秀传统文化涵养党性，在实践中锤炼党性，加强党性鉴别。"
-  },
-  {
-    type:"single",
-    q:"民主集中制是党的什么？",
-    options:["根本组织原则和领导制度","根本政治制度","基本经济制度","根本工作方法"],
-    answer:[0],
-    explain:"全会提出，民主集中制是党的根本组织原则和领导制度，贯彻执行民主集中制是全面从严治党的内在要求。"
-  },
-  {
-    type:"judge",
-    q:"全会提出，全面从严治党关键在从严治吏。",
-    options:["正确","错误"],
-    answer:[0],
-    explain:"公报原文：全面从严治党关键在从严治吏。必须贯彻新时代党的组织路线，建设高素质干部队伍。"
-  },
-  {
-    type:"single",
-    q:"《决定》指出，全面从严治党的主体是？",
-    options:["党的各级组织","领导干部","纪检监察机关","全体党员"],
-    answer:[0],
-    explain:"公报提出，党的各级组织是全面从严治党的主体，要强化党组织政治功能和组织功能。"
-  },
-  {
-    type:"single",
-    q:"全会提出，正风肃纪是全面从严治党的什么？",
-    options:["有力举措","根本性任务","基本方针","长远之策"],
-    answer:[0],
-    explain:"公报原文：正风肃纪是全面从严治党的有力举措。"
-  },
-  {
-    type:"multi",
     q:"一体推进“三不腐”指的是？",
     options:["不敢腐","不能腐","不想腐","不愿腐"],
     answer:[0,1,2],
@@ -479,13 +444,6 @@ const BANK = [
     options:["2027年上半年","2027年下半年","2028年上半年","2026年底"],
     answer:[1],
     explain:"全会决定，中国共产党第二十一次全国代表大会于 2027 年下半年在北京召开。"
-  },
-  {
-    type:"single",
-    q:"全会强调，必须扭住管党治党责任制的什么？",
-    options:["“牛鼻子”","“总开关”","“压舱石”","“定盘星”"],
-    answer:[0],
-    explain:"公报原文：必须扭住管党治党责任制“牛鼻子”，健全各负其责、统一协调的责任体系。"
   }
 ];
 
@@ -507,7 +465,7 @@ function setBest(v){ try{ localStorage.setItem("wzqh5_best", v); }catch(e){} }
 
 function start(){
   const pool = BANK.map((q,i)=>i);
-  state.list = state.mode === "random" ? shuffle(pool).slice(0,10) : pool;
+  state.list = state.mode === "random" ? shuffle(pool).slice(0,5) : pool;
   state.idx = 0; state.score = 0; state.wrong = []; state.startAt = Date.now();
   $("qTotal").textContent = state.list.length;
   show("screen-quiz");
@@ -674,3 +632,4 @@ $("totalNum").textContent = BANK.length;
 </script>
 </body>
 </html>
+
