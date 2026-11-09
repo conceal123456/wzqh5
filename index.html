@@ -300,7 +300,7 @@ button{touch-action:manipulation}
       <div class="closing">
         <div class="closing-label">结 语</div>
         <div class="closing-title">谢谢大家</div>
-        <p class="closing-text">一次答题会结束，党性修养不会结束。愿我们把“持之以恒”四个字，落在每一次组织生活、每一份作业、每一行代码里。</p>
+        <p class="closing-text">题做完了，学习还没结束。以后组织生活上多交流，讲得不对的地方也请大家批评指正。</p>
         <div class="closing-sign">医药信息工程学院学生党支部 · 2026年11月</div>
       </div>
       <div class="result-actions">
@@ -509,10 +509,10 @@ function finish(){
   $("sumNo").textContent = total - state.score;
   $("sumTime").textContent = Math.floor(sec/60) + "′" + String(sec%60).padStart(2,"0") + "″";
 
-  let grade = "继续加油", sub = "再来一遍，重点看错题解析。";
-  if(pct >= 95){ grade = "学得很扎实"; sub = "几乎全对，可以给支部同学当“小教员”了。"; }
-  else if(pct >= 85){ grade = "掌握良好"; sub = "个别细节再巩固一下，就非常稳了。"; }
-  else if(pct >= 70){ grade = "基本掌握"; sub = "建议对照《公报》原文，重点复习错题涉及的部分。"; }
+  let grade = "还得再看看", sub = "把《公报》读一遍，再来一次。";
+  if(pct >= 95){ grade = "答得不错"; sub = "基本都对了，可以给同学讲讲。"; }
+  else if(pct >= 85){ grade = "掌握得可以"; sub = "有个别细节再看看原文。"; }
+  else if(pct >= 70){ grade = "差不多记住了"; sub = "错题对着《公报》再过一遍。"; }
   $("grade").textContent = grade;
   $("gradeSub").textContent = sub;
 
@@ -521,7 +521,7 @@ function finish(){
 
   const rv = $("review");
   if(state.wrong.length === 0){
-    rv.innerHTML = '<div class="empty-ok">全部答对，没有错题。建议再读一遍《公报》原文，加深理解。</div>';
+    rv.innerHTML = '<div class="empty-ok">全对。有空再把《公报》原文读一遍。</div>';
   } else {
     rv.innerHTML = '<h3>错 题 回 顾（' + state.wrong.length + ' 题）</h3>' + state.wrong.map(w=>{
       const right = w.q.answer.map(i=>"ABCDEF"[i] + ". " + w.q.options[i]).join("；");
@@ -554,7 +554,7 @@ $("againBtn").addEventListener("click", start);
 $("homeBtn").addEventListener("click", ()=>show("screen-home"));
 $("shareBtn").addEventListener("click", async ()=>{
   const txt = "我在《党的二十届五中全会公报》学习问答中答对 " + state.score + "/" + state.list.length +
-              " 题，得分率 " + $("pct").textContent + "%。一起来学！";
+              " 题，得分率 " + $("pct").textContent + "%。你也来试试。";
   try{
     await navigator.clipboard.writeText(txt);
     $("copyHint").textContent = "成绩已复制，可粘贴到群里分享。";
