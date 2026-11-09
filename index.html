@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#1A0908" />
+<title>党的二十届五中全会公报 · 学习问答</title>
+<style>
+:root{
+  --bg:#1A0908;
+  --bg-2:#2B0D0B;
+  --card:rgba(255,255,255,.05);
+  --card-2:rgba(255,255,255,.03);
+  --gold:#D9B26A;
+  --gold-2:#F2DCAE;
+  --gold-dim:#9A7B47;
+  --red:#B23A2E;
+  --red-deep:#5E100D;
+  --ink:#F4E9D8;
+  --muted:#B9A48C;
+  --line:rgba(217,178,106,.22);
+  --ok:#8FBF9E;
+  --ok-bg:rgba(90,150,110,.13);
+  --no:#E39087;
+  --no-bg:rgba(200,70,60,.13);
+  --radius:20px;
+  --shadow:0 24px 50px -30px rgba(0,0,0,.95);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  min-height:100dvh;
+  color:var(--ink);
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Noto Sans SC",sans-serif;
+  background:
+    radial-gradient(1100px 620px at 82% -12%, rgba(178,58,46,.22), transparent 62%),
+    radial-gradient(900px 520px at -10% 108%, rgba(217,178,106,.12), transparent 60%),
+    linear-gradient(165deg,#1B0908 0%, #240B09 45%, #160706 100%);
+  background-attachment:fixed;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.55;
+  background-image:radial-gradient(rgba(255,225,180,.035) 1px, transparent 1px);
+  background-size:3px 3px;
+}
+.app{position:relative;max-width:560px;margin:0 auto;padding:22px 20px calc(28px + env(safe-area-inset-bottom));min-height:100dvh;display:flex;flex-direction:column}
+
+/* ---------- 顶部 ---------- */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+.brand{display:flex;align-items:center;gap:9px;font-size:11.5px;letter-spacing:.12em;color:var(--muted)}
+.brand .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(217,178,106,.12)}
+.ghost-btn{
+  border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--muted);
+  font-size:11.5px;padding:6px 12px;border-radius:999px;cursor:pointer;transition:.2s;font-family:inherit;
+}
+.ghost-btn:hover{color:var(--gold-2);border-color:rgba(217,178,106,.5)}
+
+/* ---------- 屏幕切换 ---------- */
+#stage{display:flex;flex-direction:column;flex:1;min-height:0}
+.screen{display:none;flex:1;animation:rise .45s cubic-bezier(.22,.9,.28,1) both}
+.screen.active{display:flex;flex-direction:column}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---------- 首页 ---------- */
+.hero{position:relative;padding:30px 0 22px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--gold);font-size:12px;letter-spacing:.28em;font-weight:600}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold-dim)}
+h1{
+  font-family:"Noto Serif SC","Songti SC",STSong,SimSun,serif;
+  font-size:clamp(26px,7.4vw,34px);line-height:1.34;margin:14px 0 0;font-weight:700;letter-spacing:.01em;
+  color:var(--ink);
+}
+h1 .accent{color:var(--gold)}
+.lede{margin-top:14px;color:var(--muted);font-size:13.5px;line-height:1.8;max-width:30em}
+.seal{
+  position:absolute;right:2px;top:34px;width:62px;height:62px;border-radius:10px;
+  background:linear-gradient(150deg,#7E1A14,#3A0B09 60%,#2A0807);
+  color:var(--gold-2);display:grid;place-items:center;font-family:"Noto Serif SC",serif;font-size:27px;
+  border:1px solid rgba(217,178,106,.45);
+  box-shadow:0 14px 30px -18px rgba(0,0,0,.95);transform:rotate(-4deg);
+}
+.seal::after{content:"";position:absolute;inset:5px;border:1px solid rgba(217,178,106,.35);border-radius:6px}
+.stats{display:flex;gap:26px;margin:20px 0 4px}
+.stat b{display:block;font-family:"Noto Serif SC",serif;font-size:22px;color:var(--gold-2);line-height:1.2}
+.stat span{font-size:11px;color:var(--muted);letter-spacing:.08em}
+
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0 16px}
+.mode{
+  position:relative;text-align:left;border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border-radius:16px;padding:16px 15px;cursor:pointer;transition:.22s;font-family:inherit;color:var(--ink);
+}
+.mode:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:rgba(217,178,106,.4)}
+.mode.on{border-color:rgba(217,178,106,.65);background:linear-gradient(180deg,rgba(217,178,106,.12),rgba(217,178,106,.04));box-shadow:0 18px 34px -26px rgba(217,178,106,.4)}
+.mode .m-title{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;color:var(--gold-2)}
+.mode .m-sub{font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.6}
+.mode .tick{
+  position:absolute;right:12px;top:12px;width:16px;height:16px;border-radius:50%;
+  border:1px solid rgba(217,178,106,.4);display:grid;place-items:center;font-size:10px;color:transparent;
+}
+.mode.on .tick{background:var(--gold);border-color:var(--gold);color:#2A0807}
+
+.primary{
+  width:100%;border-radius:16px;padding:17px 18px;cursor:pointer;
+  border:1px solid rgba(217,178,106,.45);
+  background:linear-gradient(180deg,#8E1E18,#5E100D 55%,#3D0A08);
+  color:var(--gold-2);font-size:16.5px;font-weight:700;font-family:inherit;letter-spacing:.14em;
+  box-shadow:0 22px 40px -24px rgba(0,0,0,.95), inset 0 1px 0 rgba(255,255,255,.09);
+  transition:.2s;
+}
+.primary:hover{transform:translateY(-1px);filter:brightness(1.08)}
+.primary:active{transform:translateY(0)}
+.primary[disabled]{opacity:.4;cursor:not-allowed;transform:none}
+.hint{text-align:center;font-size:11px;color:var(--muted);margin-top:12px;letter-spacing:.04em}
+.ornament{display:flex;align-items:center;gap:14px;margin:26px 0 0;color:var(--gold)}
+.ornament i{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(217,178,106,.35),transparent)}
+.ornament em{font-style:normal;font-size:11px;letter-spacing:.3em;color:var(--gold-dim);white-space:nowrap}
+.source{margin-top:26px;font-size:10.5px;color:#8C7A66;line-height:1.7}
+
+/* ---------- 答题 ---------- */
+.qtop{display:flex;align-items:center;justify-content:space-between;margin:8px 0 12px;font-size:12px;color:var(--muted)}
+.qtop .score{color:var(--gold);font-weight:700;letter-spacing:.04em}
+.track{height:4px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
+.bar{height:100%;width:0;background:linear-gradient(90deg,var(--gold-dim),var(--gold));border-radius:99px;transition:width .4s cubic-bezier(.22,.9,.28,1)}
+.qcard{margin-top:22px}
+.badge{
+  display:inline-block;font-size:11px;letter-spacing:.16em;color:var(--gold);
+  border:1px solid rgba(217,178,106,.35);border-radius:99px;padding:4px 11px;background:rgba(217,178,106,.06)
+}
+.qtext{
+  font-family:"Noto Serif SC","Songti SC",STSong,SimSun,serif;
+  font-size:clamp(19px,5.4vw,22px);line-height:1.62;font-weight:700;margin:16px 0 20px;letter-spacing:.01em;
+  color:var(--ink);
+}
+.options{display:flex;flex-direction:column;gap:10px}
+.opt{
+  display:flex;align-items:flex-start;gap:12px;text-align:left;width:100%;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  border-radius:14px;padding:14px 15px;font-size:14.5px;line-height:1.55;font-family:inherit;color:var(--ink);
+  cursor:pointer;transition:.18s;
+}
+.opt:hover{border-color:rgba(217,178,106,.55);background:rgba(217,178,106,.06)}
+.opt .key{
+  flex:none;width:22px;height:22px;border-radius:7px;border:1px solid rgba(217,178,106,.4);
+  display:grid;place-items:center;font-size:11.5px;color:var(--gold);margin-top:1px;transition:.18s;
+}
+.opt.sel{border-color:var(--gold);background:rgba(217,178,106,.12);box-shadow:0 10px 24px -20px rgba(217,178,106,.6)}
+.opt.sel .key{background:var(--gold);border-color:var(--gold);color:#2A0807}
+.opt.right{border-color:rgba(143,191,158,.6);background:var(--ok-bg)}
+.opt.right .key{background:#3E6B4F;border-color:#3E6B4F;color:#F2FFF7}
+.opt.wrong{border-color:rgba(227,144,135,.55);background:var(--no-bg)}
+.opt.wrong .key{background:#8A2B22;border-color:#8A2B22;color:#FFEFEC}
+.opt.lock{cursor:default}
+
+.explain{
+  margin-top:16px;border-left:3px solid var(--gold);background:rgba(255,255,255,.05);
+  border-radius:0 12px 12px 0;padding:13px 15px;font-size:13px;line-height:1.75;color:#E6D6BE;
+  display:none;animation:rise .3s ease both;
+}
+.explain.show{display:block}
+.explain b{color:var(--gold)}
+.verdict{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;margin-top:16px;display:none}
+.verdict.show{display:flex}
+.verdict.ok{color:var(--ok)}
+.verdict.no{color:var(--no)}
+
+.qactions{margin-top:auto;padding-top:22px;display:flex;gap:10px}
+.qactions .primary{letter-spacing:.1em}
+
+/* ---------- 结果 ---------- */
+.result-head{text-align:center;padding-top:14px}
+.ring{position:relative;width:180px;height:180px;margin:0 auto}
+.ring svg{transform:rotate(-90deg)}
+.ring .num{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.ring .num b{font-family:"Noto Serif SC",serif;font-size:44px;color:var(--gold-2);line-height:1}
+.ring .num span{font-size:11px;color:var(--muted);letter-spacing:.2em;margin-top:6px}
+.grade{font-family:"Noto Serif SC",serif;font-size:23px;font-weight:700;margin:18px 0 6px;color:var(--gold-2)}
+.grade-sub{font-size:12.5px;color:var(--muted);line-height:1.7}
+.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0 8px}
+.cell{background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center}
+.cell b{display:block;font-size:18px;font-family:"Noto Serif SC",serif;color:var(--gold-2)}
+.cell span{font-size:10.5px;color:var(--muted);letter-spacing:.06em}
+.review{margin-top:14px;border-top:1px dashed rgba(217,178,106,.25);padding-top:14px}
+.review h3{font-size:12px;letter-spacing:.16em;color:var(--muted);font-weight:600;margin:0 0 10px}
+.wrong-item{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:12px;padding:12px 14px;margin-bottom:9px;font-size:12.5px;line-height:1.7}
+.wrong-item .wq{font-weight:700;margin-bottom:6px;color:var(--gold-2)}
+.wrong-item .wa{color:var(--ok)}
+.wrong-item .wb{color:var(--no)}
+.empty-ok{font-size:12.5px;color:var(--ok);background:var(--ok-bg);border-radius:12px;padding:14px;text-align:center}
+.result-actions{display:flex;gap:10px;margin-top:18px}
+.result-actions .primary{flex:1}
+.secondary{
+  flex:1;border:1px solid rgba(217,178,106,.4);background:rgba(255,255,255,.04);color:var(--gold-2);
+  border-radius:16px;padding:16px;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;letter-spacing:.08em;
+}
+.secondary:hover{background:rgba(217,178,106,.08)}
+
+button{touch-action:manipulation}
+@media (min-width:720px){
+  body{display:flex;justify-content:center;align-items:flex-start;padding:44px 24px}
+  .app{
+    max-width:620px;padding:30px 36px 26px;min-height:auto;border-radius:28px;
+    background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+    border:1px solid rgba(217,178,106,.18);
+    box-shadow:0 50px 120px -60px #000;
+  }
+  .topbar{margin-bottom:8px}
+}
+@media (max-width:390px){
+  .app{padding:18px 16px calc(22px + env(safe-area-inset-bottom))}
+  .modes{grid-template-columns:1fr;gap:10px}
+  .mode{padding:14px 15px}
+  .stats{gap:22px}
+  h1{font-size:25px}
+  .qtext{font-size:19px;margin:14px 0 18px}
+  .opt{padding:13px 14px;font-size:14px}
+  .qactions{padding-top:16px}
+  .primary{padding:15px 16px;font-size:15.5px}
+  .ring{width:158px;height:158px}
+  .ring svg{width:158px;height:158px}
+  .summary{gap:8px}
+}
+@media (max-width:340px){
+  .stats{gap:14px}
+  .stat b{font-size:20px}
+  .qtop{font-size:11.5px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="brand"><span class="dot"></span>安徽中医药大学 · 医药信息工程学院</div>
+    <button class="ghost-btn" id="homeBtn" hidden>返回首页</button>
+  </div>
+
+  <main id="stage">
+    <!-- ============ 首页 ============ -->
+    <section class="screen active" id="screen-home">
+      <div class="hero">
+        <div class="seal">学</div>
+        <div class="eyebrow">学习问答</div>
+        <h1>党的二十届五中全会<br><span class="accent">公报</span>知识自测</h1>
+        <p class="lede">依据新华社 2026 年 10 月 29 日发布的《中国共产党第二十届中央委员会第五次全体会议公报》原文编写，每题附解析。</p>
+        <div class="stats">
+          <div class="stat"><b id="totalNum">20</b><span>道题目</span></div>
+          <div class="stat"><b>5</b><span>分钟以内</span></div>
+          <div class="stat"><b id="bestNum">—</b><span>我的最高分</span></div>
+        </div>
+      </div>
+
+      <div class="modes" id="modes">
+        <button class="mode on" data-mode="all">
+          <span class="tick">✓</span>
+          <div class="m-title">完整闯关</div>
+          <div class="m-sub">20 道题顺序作答<br>适合系统复习</div>
+        </button>
+        <button class="mode" data-mode="random">
+          <span class="tick">✓</span>
+          <div class="m-title">随机十题</div>
+          <div class="m-sub">随机抽取 10 道<br>适合会前热身</div>
+        </button>
+      </div>
+
+      <button class="primary" id="startBtn">开 始 答 题</button>
+      <div class="hint">选择后按 Enter 确认 · 支持手机与电脑</div>
+      <div class="ornament"><i></i><em>以考促学 · 以学促行</em><i></i></div>
+
+      <div class="source">内容来源：《中国共产党第二十届中央委员会第五次全体会议公报》（新华社，2026年10月29日）。<br>本页面为支部学习辅助材料，题目与解析仅供学习参考。</div>
+    </section>
+
+    <!-- ============ 答题 ============ -->
+    <section class="screen" id="screen-quiz">
+      <div class="qtop">
+        <span>第 <b id="qIndex">1</b> / <b id="qTotal">20</b> 题</span>
+        <span class="score" id="scoreNow">答对 0 题</span>
+      </div>
+      <div class="track"><div class="bar" id="bar"></div></div>
+
+      <div class="qcard">
+        <span class="badge" id="qType">单选题</span>
+        <div class="qtext" id="qText">题目</div>
+        <div class="options" id="options"></div>
+        <div class="verdict" id="verdict"></div>
+        <div class="explain" id="explain"></div>
+      </div>
+
+      <div class="qactions">
+        <button class="primary" id="nextBtn" disabled>确 认 答 案</button>
+      </div>
+    </section>
+
+    <!-- ============ 结果 ============ -->
+    <section class="screen" id="screen-result">
+      <div class="result-head">
+        <div class="ring">
+          <svg width="180" height="180" viewBox="0 0 180 180">
+            <circle cx="90" cy="90" r="78" fill="none" stroke="rgba(163,35,29,.12)" stroke-width="10"/>
+            <circle id="ringFg" cx="90" cy="90" r="78" fill="none" stroke="url(#g)" stroke-width="10"
+                    stroke-linecap="round" stroke-dasharray="490" stroke-dashoffset="490"
+                    style="transition:stroke-dashoffset 1s cubic-bezier(.22,.9,.28,1)"/>
+            <defs>
+              <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#C09A56"/><stop offset="100%" stop-color="#A3231D"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="num"><b id="pct">0</b><span>得分率 %</span></div>
+        </div>
+        <div class="grade" id="grade">继续加油</div>
+        <div class="grade-sub" id="gradeSub"></div>
+      </div>
+
+      <div class="summary">
+        <div class="cell"><b id="sumOk">0</b><span>答对</span></div>
+        <div class="cell"><b id="sumNo">0</b><span>答错</span></div>
+        <div class="cell"><b id="sumTime">0′00″</b><span>用时</span></div>
+      </div>
+
+      <div class="review" id="review"></div>
+
+      <div class="result-actions">
+        <button class="secondary" id="againBtn">再来一次</button>
+        <button class="primary" id="shareBtn" style="letter-spacing:.08em">复制成绩</button>
+      </div>
+      <div class="hint" id="copyHint"></div>
+    </section>
+  </main>
+</div>
+
+<script>
+/* =========================================================
+   题库：全部依据《中国共产党第二十届中央委员会第五次
+   全体会议公报》（新华社 2026-10-29）原文编写
+   ========================================================= */
+const BANK = [
+  {
+    type:"single",
+    q:"党的二十届五中全会于何时在北京举行？",
+    options:["2026年10月20日至23日","2026年10月26日至29日","2026年11月1日至4日","2026年9月26日至29日"],
+    answer:[1],
+    explain:"全会于 2026 年 10 月 26 日至 29 日在北京举行，会期 4 天。"
+  },
+  {
+    type:"single",
+    q:"出席这次全会的中央委员、候补中央委员分别是多少人？",
+    options:["162人、117人","117人、162人","198人、117人","162人、198人"],
+    answer:[0],
+    explain:"公报原文：出席这次全会的有，中央委员 162 人，候补中央委员 117 人。"
+  },
+  {
+    type:"single",
+    q:"全会审议通过的文件是什么？",
+    options:[
+      "《中共中央关于进一步全面深化改革、推进中国式现代化的决定》",
+      "《中共中央关于持之以恒推进全面从严治党若干重大问题的决定》",
+      "《中共中央关于制定国民经济和社会发展第十五个五年规划的建议》",
+      "《中共中央关于党的百年奋斗重大成就和历史经验的决议》"
+    ],
+    answer:[1],
+    explain:"全会审议通过《中共中央关于持之以恒推进全面从严治党若干重大问题的决定》。"
+  },
+  {
+    type:"single",
+    q:"全会最重要的成果是什么？",
+    options:[
+      "增选中央政治局委员",
+      "决定召开党的二十一大",
+      "审议通过《中共中央关于持之以恒推进全面从严治党若干重大问题的决定》",
+      "递补中央委员会委员"
+    ],
+    answer:[2],
+    explain:"全会最重要的成果，是审议通过《中共中央关于持之以恒推进全面从严治党若干重大问题的决定》。"
+  },
+  {
+    type:"judge",
+    q:"全会由中央政治局主持，中央委员会总书记习近平发表重要讲话。",
+    options:["正确","错误"],
+    answer:[0],
+    explain:"公报原文：全会由中央政治局主持。中央委员会总书记习近平发表重要讲话。"
+  },
+  {
+    type:"single",
+    q:"公报对“十四五”“十五五”作出怎样的评价？",
+    options:["“十四五”圆满收官、“十五五”开局良好","“十四五”开局良好、“十五五”圆满收官","两个五年规划均尚未完成","公报未提及"],
+    answer:[0],
+    explain:"公报指出：“十四五”圆满收官，“十五五”开局良好，党和国家事业取得新进展新成效。"
+  },
+  {
+    type:"multi",
+    q:"跳出治乱兴衰历史周期率的“两个答案”是什么？",
+    options:["让人民来监督政府","自我革命","依法治国","发展经济"],
+    answer:[0,1],
+    explain:"公报指出，我们党找到“让人民来监督政府”和“自我革命”两个跳出治乱兴衰历史周期率的答案，这是中国共产党的独特创造。"
+  },
+  {
+    type:"single",
+    q:"新时代管党治党、兴党强党伟大实践中形成的重大理论成果是？",
+    options:["习近平党建思想","邓小平理论","“三个代表”重要思想","科学发展观"],
+    answer:[0],
+    explain:"公报指出，党中央围绕建设什么样的长期执政的马克思主义政党、怎样建设长期执政的马克思主义政党的重大时代课题，形成习近平党建思想。"
+  },
+  {
+    type:"multi",
+    q:"持之以恒推进全面从严治党遵循的“七条原则”包括？",
+    options:["坚持服务使命任务","坚持以党的政治建设为统领","坚持全面从严","坚持问题导向"],
+    answer:[0,1,2,3],
+    explain:"七条原则为：坚持服务使命任务、坚持以党的政治建设为统领、坚持全面从严、坚持问题导向、坚持守正创新、坚持以上率下、坚持依规治党。"
+  },
+  {
+    type:"single",
+    q:"全会提出，增强党性是全面从严治党的什么任务？",
+    options:["根本性任务","重要方略","长远之策","基本方针"],
+    answer:[0],
+    explain:"全会提出，增强党性是全面从严治党的根本性任务，要把加强党性修养作为终身课题。"
+  },
+  {
+    type:"multi",
+    q:"加强党性修养，要在下列哪些方面下功夫？",
+    options:["坚定理想信念","铸牢对党忠诚","厚植为民情怀","保持清正廉洁","追求个人名利"],
+    answer:[0,1,2,3],
+    explain:"公报提出，在坚定理想信念、铸牢对党忠诚、厚植为民情怀、坚持实事求是、纯正道德品质、保持清正廉洁等方面下功夫。"
+  },
+  {
+    type:"multi",
+    q:"《公报》明确的加强党性修养路径包括？",
+    options:["强化对党忠诚教育","坚持用党的创新理论凝心铸魂","在实践中锤炼党性","以个人名利衡量党性"],
+    answer:[0,1,2],
+    explain:"公报提出五个方面：强化对党忠诚教育，坚持用党的创新理论凝心铸魂，用党的优良传统和中华优秀传统文化涵养党性，在实践中锤炼党性，加强党性鉴别。"
+  },
+  {
+    type:"single",
+    q:"民主集中制是党的什么？",
+    options:["根本组织原则和领导制度","根本政治制度","基本经济制度","根本工作方法"],
+    answer:[0],
+    explain:"全会提出，民主集中制是党的根本组织原则和领导制度，贯彻执行民主集中制是全面从严治党的内在要求。"
+  },
+  {
+    type:"judge",
+    q:"全会提出，全面从严治党关键在从严治吏。",
+    options:["正确","错误"],
+    answer:[0],
+    explain:"公报原文：全面从严治党关键在从严治吏。必须贯彻新时代党的组织路线，建设高素质干部队伍。"
+  },
+  {
+    type:"single",
+    q:"《决定》指出，全面从严治党的主体是？",
+    options:["党的各级组织","领导干部","纪检监察机关","全体党员"],
+    answer:[0],
+    explain:"公报提出，党的各级组织是全面从严治党的主体，要强化党组织政治功能和组织功能。"
+  },
+  {
+    type:"single",
+    q:"全会提出，正风肃纪是全面从严治党的什么？",
+    options:["有力举措","根本性任务","基本方针","长远之策"],
+    answer:[0],
+    explain:"公报原文：正风肃纪是全面从严治党的有力举措。"
+  },
+  {
+    type:"multi",
+    q:"一体推进“三不腐”指的是？",
+    options:["不敢腐","不能腐","不想腐","不愿腐"],
+    answer:[0,1,2],
+    explain:"公报表述为“坚定不移一体推进不敢腐、不能腐、不想腐”，这是全面从严治党的重要方略和反腐败斗争的基本方针。"
+  },
+  {
+    type:"single",
+    q:"加强党内法规制度建设是全面从严治党的什么？",
+    options:["长远之策、根本之策","权宜之计","重要方略","根本性任务"],
+    answer:[0],
+    explain:"公报原文：加强党内法规制度建设是全面从严治党的长远之策、根本之策。"
+  },
+  {
+    type:"single",
+    q:"全会决定，党的二十一次全国代表大会将于何时召开？",
+    options:["2027年上半年","2027年下半年","2028年上半年","2026年底"],
+    answer:[1],
+    explain:"全会决定，中国共产党第二十一次全国代表大会于 2027 年下半年在北京召开。"
+  },
+  {
+    type:"single",
+    q:"全会强调，必须扭住管党治党责任制的什么？",
+    options:["“牛鼻子”","“总开关”","“压舱石”","“定盘星”"],
+    answer:[0],
+    explain:"公报原文：必须扭住管党治党责任制“牛鼻子”，健全各负其责、统一协调的责任体系。"
+  }
+];
+
+/* ---------------- 状态 ---------------- */
+const state = { mode:"all", list:[], idx:0, picked:[], locked:false, score:0, wrong:[], startAt:0 };
+const $ = id => document.getElementById(id);
+const TYPE_LABEL = { single:"单选题", multi:"多选题", judge:"判断题" };
+
+function show(id){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  $(id).classList.add("active");
+  $("homeBtn").hidden = (id === "screen-home");
+  window.scrollTo({top:0,behavior:"instant"});
+}
+
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function getBest(){ try{ return +(localStorage.getItem("wzqh5_best") || 0); }catch(e){ return 0; } }
+function setBest(v){ try{ localStorage.setItem("wzqh5_best", v); }catch(e){} }
+
+function start(){
+  const pool = BANK.map((q,i)=>i);
+  state.list = state.mode === "random" ? shuffle(pool).slice(0,10) : pool;
+  state.idx = 0; state.score = 0; state.wrong = []; state.startAt = Date.now();
+  $("qTotal").textContent = state.list.length;
+  show("screen-quiz");
+  render();
+}
+
+function render(){
+  const q = BANK[state.list[state.idx]];
+  state.picked = []; state.locked = false;
+  $("qIndex").textContent = state.idx + 1;
+  $("qType").textContent = TYPE_LABEL[q.type];
+  $("qText").textContent = q.q;
+  $("scoreNow").textContent = "答对 " + state.score + " 题";
+  $("bar").style.width = ((state.idx) / state.list.length * 100) + "%";
+
+  const box = $("options");
+  box.innerHTML = "";
+  q.options.forEach((text, i)=>{
+    const b = document.createElement("button");
+    b.className = "opt";
+    b.dataset.i = i;
+    b.innerHTML = '<span class="key">' + "ABCDEF"[i] + '</span><span>' + text + '</span>';
+    b.addEventListener("click", ()=>pick(i));
+    box.appendChild(b);
+  });
+
+  const v = $("verdict"); v.className = "verdict"; v.textContent = "";
+  const ex = $("explain"); ex.className = "explain"; ex.textContent = "";
+  const nb = $("nextBtn");
+  nb.textContent = "确 认 答 案"; nb.disabled = true;
+  nb.onclick = confirmAnswer;
+}
+
+function pick(i){
+  if(state.locked) return;
+  const q = BANK[state.list[state.idx]];
+  if(q.type === "multi"){
+    const k = state.picked.indexOf(i);
+    if(k >= 0) state.picked.splice(k,1); else state.picked.push(i);
+  } else {
+    state.picked = [i];
+  }
+  document.querySelectorAll(".opt").forEach(el=>{
+    el.classList.toggle("sel", state.picked.includes(+el.dataset.i));
+  });
+  $("nextBtn").disabled = state.picked.length === 0;
+}
+
+function confirmAnswer(){
+  if(state.locked || state.picked.length === 0) return;
+  const q = BANK[state.list[state.idx]];
+  state.locked = true;
+  const ok = state.picked.length === q.answer.length && state.picked.every(i=>q.answer.includes(i));
+
+  document.querySelectorAll(".opt").forEach(el=>{
+    const i = +el.dataset.i;
+    el.classList.add("lock");
+    el.classList.remove("sel");
+    if(q.answer.includes(i)) el.classList.add("right");
+    else if(state.picked.includes(i)) el.classList.add("wrong");
+  });
+
+  const v = $("verdict");
+  v.className = "verdict show " + (ok ? "ok" : "no");
+  v.textContent = ok ? "✓ 回答正确" : "✕ 回答有误，正确答案：" + q.answer.map(i=>"ABCDEF"[i]).join("");
+
+  const ex = $("explain");
+  ex.className = "explain show";
+  ex.innerHTML = "<b>解析　</b>" + q.explain;
+
+  if(ok) state.score++; else state.wrong.push({q, picked:[...state.picked]});
+  $("scoreNow").textContent = "答对 " + state.score + " 题";
+
+  const nb = $("nextBtn");
+  nb.textContent = state.idx === state.list.length - 1 ? "查 看 结 果" : "下 一 题";
+  nb.disabled = false;
+  nb.onclick = next;
+  $("bar").style.width = ((state.idx + 1) / state.list.length * 100) + "%";
+}
+
+function next(){
+  if(state.idx < state.list.length - 1){ state.idx++; render(); }
+  else finish();
+}
+
+function finish(){
+  const total = state.list.length;
+  const pct = Math.round(state.score / total * 100);
+  const sec = Math.max(1, Math.round((Date.now() - state.startAt) / 1000));
+  $("pct").textContent = pct;
+  $("sumOk").textContent = state.score;
+  $("sumNo").textContent = total - state.score;
+  $("sumTime").textContent = Math.floor(sec/60) + "′" + String(sec%60).padStart(2,"0") + "″";
+
+  let grade = "继续加油", sub = "再来一遍，重点看错题解析。";
+  if(pct >= 95){ grade = "学得很扎实"; sub = "几乎全对，可以给支部同学当“小教员”了。"; }
+  else if(pct >= 85){ grade = "掌握良好"; sub = "个别细节再巩固一下，就非常稳了。"; }
+  else if(pct >= 70){ grade = "基本掌握"; sub = "建议对照《公报》原文，重点复习错题涉及的部分。"; }
+  $("grade").textContent = grade;
+  $("gradeSub").textContent = sub;
+
+  const ring = $("ringFg");
+  ring.style.strokeDashoffset = 490 - 490 * pct / 100;
+
+  const rv = $("review");
+  if(state.wrong.length === 0){
+    rv.innerHTML = '<div class="empty-ok">全部答对，没有错题。建议再读一遍《公报》原文，加深理解。</div>';
+  } else {
+    rv.innerHTML = '<h3>错 题 回 顾（' + state.wrong.length + ' 题）</h3>' + state.wrong.map(w=>{
+      const right = w.q.answer.map(i=>"ABCDEF"[i] + ". " + w.q.options[i]).join("；");
+      const mine = w.picked.length ? w.picked.map(i=>"ABCDEF"[i]).join("、") : "未作答";
+      return '<div class="wrong-item"><div class="wq">' + w.q.q + '</div>' +
+             '<div class="wb">你的选择：' + mine + '</div>' +
+             '<div class="wa">正确答案：' + right + '</div>' +
+             '<div style="color:#6F6558;margin-top:6px">' + w.q.explain + '</div></div>';
+    }).join("");
+  }
+
+  const best = Math.max(pct, getBest());
+  setBest(best);
+  $("bestNum").textContent = best + "%";
+
+  $("copyHint").textContent = "";
+  show("screen-result");
+}
+
+/* ---------------- 交互绑定 ---------------- */
+document.querySelectorAll(".mode").forEach(m=>{
+  m.addEventListener("click", ()=>{
+    document.querySelectorAll(".mode").forEach(x=>x.classList.remove("on"));
+    m.classList.add("on");
+    state.mode = m.dataset.mode;
+  });
+});
+$("startBtn").addEventListener("click", start);
+$("againBtn").addEventListener("click", start);
+$("homeBtn").addEventListener("click", ()=>show("screen-home"));
+$("shareBtn").addEventListener("click", async ()=>{
+  const txt = "我在《党的二十届五中全会公报》学习问答中答对 " + state.score + "/" + state.list.length +
+              " 题，得分率 " + $("pct").textContent + "%。一起来学！";
+  try{
+    await navigator.clipboard.writeText(txt);
+    $("copyHint").textContent = "成绩已复制，可粘贴到群里分享。";
+  }catch(e){
+    $("copyHint").textContent = txt;
+  }
+});
+
+document.addEventListener("keydown", e=>{
+  if(!$("screen-quiz").classList.contains("active")) return;
+  const k = e.key;
+  if(/^[1-6]$/.test(k)){
+    const i = +k - 1;
+    if(document.querySelectorAll(".opt")[i]) pick(i);
+    e.preventDefault();
+  }
+  if(k === "Enter" && !$("nextBtn").disabled){ $("nextBtn").click(); e.preventDefault(); }
+});
+
+/* 记录最高分 */
+const savedBest = getBest();
+if(savedBest) $("bestNum").textContent = savedBest + "%";
+$("totalNum").textContent = BANK.length;
+</script>
+</body>
+</html>
