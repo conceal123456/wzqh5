@@ -63,11 +63,6 @@ h1{font-family:"Noto Serif SC","Songti SC",STSong,SimSun,serif;font-size:clamp(2
   line-height:1.34;margin:14px 0 0;font-weight:700;letter-spacing:.01em;color:var(--ink)}
 h1 .accent{color:var(--red)}
 .lede{margin-top:14px;color:var(--muted);font-size:13.5px;line-height:1.8;max-width:30em}
-.seal{position:absolute;right:2px;top:34px;width:62px;height:62px;border-radius:10px;
-  background:linear-gradient(150deg,#B4695D,#93453C 55%,#7A3A32);color:#FBF1E4;
-  display:grid;place-items:center;font-family:"Noto Serif SC",serif;font-size:27px;
-  box-shadow:0 12px 26px -16px rgba(113,50,43,.55);transform:rotate(-4deg);opacity:.95}
-.seal::after{content:"";position:absolute;inset:5px;border:1px solid rgba(251,241,228,.5);border-radius:6px}
 .stats{display:flex;gap:26px;margin:20px 0 4px}
 .stat b{display:block;font-family:"Noto Serif SC",serif;font-size:22px;color:var(--red);line-height:1.2}
 .stat span{font-size:11px;color:var(--muted);letter-spacing:.08em}
@@ -84,9 +79,10 @@ h1 .accent{color:var(--red)}
 .mode.on .tick{background:var(--red);border-color:var(--red);color:#fff}
 
 .primary{width:100%;border:0;border-radius:16px;padding:17px 18px;cursor:pointer;
-  background:linear-gradient(180deg,#A85B50,#93453C 45%,#71322B);
-  color:#FBF3E8;font-size:16.5px;font-weight:700;font-family:inherit;letter-spacing:.14em;
-  box-shadow:0 16px 30px -18px rgba(113,50,43,.55), inset 0 1px 0 rgba(255,255,255,.15);transition:.2s}
+  background:linear-gradient(180deg,#3B332C,#241F1B 55%,#1B1714);
+  color:#F3E6D2;font-size:16.5px;font-weight:700;font-family:inherit;letter-spacing:.14em;
+  border:1px solid rgba(176,141,87,.35);
+  box-shadow:0 16px 30px -18px rgba(40,30,20,.55), inset 0 1px 0 rgba(255,255,255,.08);transition:.2s}
 .primary:hover{transform:translateY(-1px);filter:brightness(1.04)}
 .primary:active{transform:translateY(0)}
 .primary[disabled]{opacity:.45;cursor:not-allowed;transform:none}
@@ -163,8 +159,6 @@ h1 .accent{color:var(--red)}
 .closing{position:relative;margin-top:22px;padding:24px 22px 20px;overflow:hidden;
   border:1px solid rgba(176,141,87,.32);border-radius:18px;text-align:center;
   background:linear-gradient(180deg,rgba(176,141,87,.10),rgba(176,141,87,.03))}
-.closing::before{content:"学";position:absolute;right:-8px;bottom:-26px;font-family:"Noto Serif SC",serif;
-  font-size:104px;line-height:1;color:rgba(147,69,60,.06);pointer-events:none}
 .closing-label{font-size:10.5px;letter-spacing:.42em;color:var(--gold-2)}
 .closing-title{font-family:"Noto Serif SC",serif;font-size:26px;font-weight:700;letter-spacing:.18em;color:var(--red);margin:10px 0 4px}
 .closing-title::after{content:"";display:block;width:44px;height:1px;margin:10px auto 0;
@@ -214,7 +208,6 @@ button{touch-action:manipulation}
     <!-- ============ 首页 ============ -->
     <section class="screen active" id="screen-home">
       <div class="hero">
-        <div class="seal">学</div>
         <div class="eyebrow">学习问答</div>
         <h1>党的二十届五中全会<br><span class="accent">公报</span>知识自测</h1>
         <p class="lede">依据新华社 2026 年 10 月 29 日发布的《中国共产党第二十届中央委员会第五次全体会议公报》原文编写，10 道题，每题附解析。</p>
